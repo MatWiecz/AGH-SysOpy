@@ -1,0 +1,7 @@
+StaticHard 2 5.05366
+StaticMedium 2 0.0190785
+StaticEasy 2 0.00138152
+SharedHard 2 1.63113
+SharedMedium 2 0.016865
+SharedEasy 2 0.00171852
+---

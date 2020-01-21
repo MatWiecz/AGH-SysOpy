@@ -1,0 +1,561 @@
+W dolnej części tego pliku zawarte jest wyjście z procesu wykonywania
+napisanego przeze mnie programu. Tażde wywołanie aplikacji jest zakończone
+wierszem "Total". Na postawie tego wyjścia, a dokładniej czasu użytkownika
+i systemowego dla poszczególnych operacji, oraz dla poszczególnych rozmiarów
+plików (różny rozmiar rekordów oraz rózna ich ilość w plikach) mogłem 
+wywnioskować cechy i zależności dotyczące róznych sposobów pracy z plikami
+(za pomocą funkcji systemowych lub bibliotecznych).
+
+Czas wykonania zadania "generate" jest proporcjonalny do ilości rekordów
+oraz ich rozmiarów (mniej niż liniowo), co jest w sumie logiczne.
+Proces wykonując to zadanie
+pracuje glównie w trybie jądra, gdyż wykonanie tego zadania polega jedynie
+na przesłaniu strumienia z pliku /dev/urandom do danego pliku. Czas ten jest
+niewielki.
+
+Czas wykonania zadania "copy" dla większości mniejszych plików jest niemalże
+stały (różnica zaczyna się pojawiać dla rozmiaru 8096 i ilości 8000).
+Proces również pracował w większości w trybie jądra, gdyż to zadanie polegało
+jedynie na skopiowaniu zawartości istniejącego już pliku, w przeciwieństwie
+do wykonywania zadania "generate", są to czasy o wiele mniejsze, gdyż większość
+czasu pochłania generowanie znaków przez urządzenie /dev/urandom.
+Wybór narzędzi (systemowych lub bibliotecznych) ogólnie nie wpływa na czas
+wykonania tego zadania.
+
+Czas wykonania zadania "sort" jest proporcjonalny w większej mierze
+do ilości rekordów (co jest logiczne, gdyż porównujemy rekordy jedynie
+na podstawie pierwszego bajtu), a w mniejszej do rozmiaru tych rekordów
+(dopiero przy większych zaczyna odgrywać większą rolę).
+Dopiero przy tym zadaniu można odnotować jakikolwiek czas użytkownika
+(gdyż w grę wchodzi już iterowanie i porównywanie rekordów).
+Czas ten jest więc głównie uzależniony od ilości rekordów, jednak ich rozmiar
+także ogrywa rolę. Nie można dla pierwszych wywołań zanotować różnicy w czasach
+w zależności od rozmiaru rekordów, gdyż ładowanie odpowiednio mniejszych
+i większych fragmentów pamięci zajmuje porównywalnie tyle samo (jest to
+w większości czas reakcji urządzenia lub scache'owanego fragmentu pamięci
+w RAM).
+Dopiero przy tym zadaniu widać znaczące różnice w czasie wykonania zadania,
+w zależności od wykorzystanych narzędzi (funkcje biblioteczne lub systemowe).
+Na podstawie tych wyników można stwierdzić, że funkcje biblioteczne radzą sobie
+o wiele lepiej dla bardzo mały rozmiarów rekordów (być może przez dołączone
+optymalizacje za pomocą cachowania). Natomiast przy znacznym wzroście rozmiaru
+rekordu ta różnica się zaciera, i dla kolejnych testów o wiele lepszy czas 
+zaczyna być osiągany przy pomocy funkcji systemowych. Ponadto można zauważyć,
+że różnica jest tym większa im większa jest ilość rekordów do posortowania.
+
+Op\Time					Real		User		System
+Generate				0.030000	0.000000	0.020000
+Records number: 4000
+Record size: 1
+File1's path: original-data-n4000-s1
+
+Total					0.030000	0.000000	0.020000
+
+
+Op\Time					Real		User		System
+Copy					0.020000	0.000000	0.020000
+Tools type: System
+Records number: 4000
+Record size: 1
+File1's path: original-data-n4000-s1
+File2's path: sys-data-n4000-s1
+
+Copy					0.020000	0.000000	0.020000
+Tools type: Library
+Records number: 4000
+Record size: 1
+File1's path: original-data-n4000-s1
+File2's path: lib-data-n4000-s1
+
+Total					0.040000	0.000000	0.040000
+
+
+Op\Time					Real		User		System
+Sort					2.450000	0.390000	2.050000
+Tools type: System
+Records number: 4000
+Record size: 1
+File1's path: sys-data-n4000-s1
+
+Sort					0.800000	0.300000	0.510000
+Tools type: Library
+Records number: 4000
+Record size: 1
+File1's path: lib-data-n4000-s1
+
+Total					3.250000	0.690000	2.560000
+
+
+Op\Time					Real		User		System
+Generate				0.060000	0.000000	0.050000
+Records number: 8000
+Record size: 1
+File1's path: original-data-n8000-s1
+
+Total					0.060000	0.000000	0.050000
+
+
+Op\Time					Real		User		System
+Copy					0.050000	0.000000	0.050000
+Tools type: System
+Records number: 8000
+Record size: 1
+File1's path: original-data-n8000-s1
+File2's path: sys-data-n8000-s1
+
+Copy					0.040000	0.000000	0.030000
+Tools type: Library
+Records number: 8000
+Record size: 1
+File1's path: original-data-n8000-s1
+File2's path: lib-data-n8000-s1
+
+Total					0.090000	0.000000	0.080000
+
+
+Op\Time					Real		User		System
+Sort					9.490000	1.310000	8.160000
+Tools type: System
+Records number: 8000
+Record size: 1
+File1's path: sys-data-n8000-s1
+
+Sort					3.110000	1.520000	1.590000
+Tools type: Library
+Records number: 8000
+Record size: 1
+File1's path: lib-data-n8000-s1
+
+Total					12.600000	2.830000	9.750000
+
+
+Op\Time					Real		User		System
+Generate				0.030000	0.000000	0.020000
+Records number: 4000
+Record size: 4
+File1's path: original-data-n4000-s4
+
+Total					0.030000	0.000000	0.020000
+
+
+Op\Time					Real		User		System
+Copy					0.030000	0.000000	0.020000
+Tools type: System
+Records number: 4000
+Record size: 4
+File1's path: original-data-n4000-s4
+File2's path: sys-data-n4000-s4
+
+Copy					0.020000	0.000000	0.020000
+Tools type: Library
+Records number: 4000
+Record size: 4
+File1's path: original-data-n4000-s4
+File2's path: lib-data-n4000-s4
+
+Total					0.050000	0.000000	0.040000
+
+
+Op\Time					Real		User		System
+Sort					2.580000	0.390000	2.180000
+Tools type: System
+Records number: 4000
+Record size: 4
+File1's path: sys-data-n4000-s4
+
+Sort					0.830000	0.400000	0.440000
+Tools type: Library
+Records number: 4000
+Record size: 4
+File1's path: lib-data-n4000-s4
+
+Total					3.410000	0.790000	2.620000
+
+
+Op\Time					Real		User		System
+Generate				0.060000	0.000000	0.050000
+Records number: 8000
+Record size: 4
+File1's path: original-data-n8000-s4
+
+Total					0.060000	0.000000	0.050000
+
+
+Op\Time					Real		User		System
+Copy					0.050000	0.000000	0.040000
+Tools type: System
+Records number: 8000
+Record size: 4
+File1's path: original-data-n8000-s4
+File2's path: sys-data-n8000-s4
+
+Copy					0.040000	0.000000	0.050000
+Tools type: Library
+Records number: 8000
+Record size: 4
+File1's path: original-data-n8000-s4
+File2's path: lib-data-n8000-s4
+
+Total					0.090000	0.000000	0.090000
+
+
+Op\Time					Real		User		System
+Sort					9.820000	1.210000	8.600000
+Tools type: System
+Records number: 8000
+Record size: 4
+File1's path: sys-data-n8000-s4
+
+Sort					3.310000	1.700000	1.590000
+Tools type: Library
+Records number: 8000
+Record size: 4
+File1's path: lib-data-n8000-s4
+
+Total					13.130000	2.910000	10.190000
+
+
+Op\Time					Real		User		System
+Generate				0.050000	0.000000	0.050000
+Records number: 4000
+Record size: 512
+File1's path: original-data-n4000-s512
+
+Total					0.050000	0.000000	0.050000
+
+
+Op\Time					Real		User		System
+Copy					0.030000	0.000000	0.020000
+Tools type: System
+Records number: 4000
+Record size: 512
+File1's path: original-data-n4000-s512
+File2's path: sys-data-n4000-s512
+
+Copy					0.030000	0.000000	0.030000
+Tools type: Library
+Records number: 4000
+Record size: 512
+File1's path: original-data-n4000-s512
+File2's path: lib-data-n4000-s512
+
+Total					0.060000	0.000000	0.050000
+
+
+Op\Time					Real		User		System
+Sort					2.490000	0.340000	2.130000
+Tools type: System
+Records number: 4000
+Record size: 512
+File1's path: sys-data-n4000-s512
+
+Sort					1.320000	0.410000	0.910000
+Tools type: Library
+Records number: 4000
+Record size: 512
+File1's path: lib-data-n4000-s512
+
+Total					3.810000	0.750000	3.040000
+
+
+Op\Time					Real		User		System
+Generate				0.110000	0.000000	0.100000
+Records number: 8000
+Record size: 512
+File1's path: original-data-n8000-s512
+
+Total					0.110000	0.000000	0.100000
+
+
+Op\Time					Real		User		System
+Copy					0.050000	0.000000	0.040000
+Tools type: System
+Records number: 8000
+Record size: 512
+File1's path: original-data-n8000-s512
+File2's path: sys-data-n8000-s512
+
+Copy					0.050000	0.000000	0.050000
+Tools type: Library
+Records number: 8000
+Record size: 512
+File1's path: original-data-n8000-s512
+File2's path: lib-data-n8000-s512
+
+Total					0.100000	0.000000	0.090000
+
+
+Op\Time					Real		User		System
+Sort					9.980000	1.340000	8.640000
+Tools type: System
+Records number: 8000
+Record size: 512
+File1's path: sys-data-n8000-s512
+
+Sort					5.670000	1.920000	3.740000
+Tools type: Library
+Records number: 8000
+Record size: 512
+File1's path: lib-data-n8000-s512
+
+Total					15.650000	3.260000	12.380000
+
+
+Op\Time					Real		User		System
+Generate				0.080000	0.000000	0.080000
+Records number: 4000
+Record size: 1024
+File1's path: original-data-n4000-s1024
+
+Total					0.080000	0.000000	0.080000
+
+
+Op\Time					Real		User		System
+Copy					0.030000	0.000000	0.020000
+Tools type: System
+Records number: 4000
+Record size: 1024
+File1's path: original-data-n4000-s1024
+File2's path: sys-data-n4000-s1024
+
+Copy					0.030000	0.000000	0.030000
+Tools type: Library
+Records number: 4000
+Record size: 1024
+File1's path: original-data-n4000-s1024
+File2's path: lib-data-n4000-s1024
+
+Total					0.060000	0.000000	0.050000
+
+
+Op\Time					Real		User		System
+Sort					2.570000	0.450000	2.100000
+Tools type: System
+Records number: 4000
+Record size: 1024
+File1's path: sys-data-n4000-s1024
+
+Sort					1.860000	0.550000	1.310000
+Tools type: Library
+Records number: 4000
+Record size: 1024
+File1's path: lib-data-n4000-s1024
+
+Total					4.430000	1.000000	3.410000
+
+
+Op\Time					Real		User		System
+Generate				0.160000	0.000000	0.150000
+Records number: 8000
+Record size: 1024
+File1's path: original-data-n8000-s1024
+
+Total					0.160000	0.000000	0.150000
+
+
+Op\Time					Real		User		System
+Copy					0.060000	0.000000	0.060000
+Tools type: System
+Records number: 8000
+Record size: 1024
+File1's path: original-data-n8000-s1024
+File2's path: sys-data-n8000-s1024
+
+Copy					0.050000	0.000000	0.040000
+Tools type: Library
+Records number: 8000
+Record size: 1024
+File1's path: original-data-n8000-s1024
+File2's path: lib-data-n8000-s1024
+
+Total					0.110000	0.000000	0.100000
+
+
+Op\Time					Real		User		System
+Sort					10.910000	1.530000	9.370000
+Tools type: System
+Records number: 8000
+Record size: 1024
+File1's path: sys-data-n8000-s1024
+
+Sort					8.400000	2.300000	6.090000
+Tools type: Library
+Records number: 8000
+Record size: 1024
+File1's path: lib-data-n8000-s1024
+
+Total					19.310000	3.830000	15.460000
+
+
+Op\Time					Real		User		System
+Generate				0.240000	0.000000	0.240000
+Records number: 4000
+Record size: 4096
+File1's path: original-data-n4000-s4096
+
+Total					0.240000	0.000000	0.240000
+
+
+Op\Time					Real		User		System
+Copy					0.040000	0.000000	0.040000
+Tools type: System
+Records number: 4000
+Record size: 4096
+File1's path: original-data-n4000-s4096
+File2's path: sys-data-n4000-s4096
+
+Copy					0.040000	0.000000	0.030000
+Tools type: Library
+Records number: 4000
+Record size: 4096
+File1's path: original-data-n4000-s4096
+File2's path: lib-data-n4000-s4096
+
+Total					0.080000	0.000000	0.070000
+
+
+Op\Time					Real		User		System
+Sort					3.570000	0.510000	3.050000
+Tools type: System
+Records number: 4000
+Record size: 4096
+File1's path: sys-data-n4000-s4096
+
+Sort					5.880000	0.900000	4.980000
+Tools type: Library
+Records number: 4000
+Record size: 4096
+File1's path: lib-data-n4000-s4096
+
+Total					9.450000	1.410000	8.030000
+
+
+Op\Time					Real		User		System
+Generate				0.470000	0.000000	0.470000
+Records number: 8000
+Record size: 4096
+File1's path: original-data-n8000-s4096
+
+Total					0.470000	0.000000	0.470000
+
+
+Op\Time					Real		User		System
+Copy					0.080000	0.000000	0.060000
+Tools type: System
+Records number: 8000
+Record size: 4096
+File1's path: original-data-n8000-s4096
+File2's path: sys-data-n8000-s4096
+
+Copy					0.060000	0.000000	0.060000
+Tools type: Library
+Records number: 8000
+Record size: 4096
+File1's path: original-data-n8000-s4096
+File2's path: lib-data-n8000-s4096
+
+Total					0.140000	0.000000	0.120000
+
+
+Op\Time					Real		User		System
+Sort					12.360000	1.670000	10.660000
+Tools type: System
+Records number: 8000
+Record size: 4096
+File1's path: sys-data-n8000-s4096
+
+Sort					23.480000	4.280000	19.200000
+Tools type: Library
+Records number: 8000
+Record size: 4096
+File1's path: lib-data-n8000-s4096
+
+Total					35.840000	5.950000	29.860000
+
+
+Op\Time					Real		User		System
+Generate				0.480000	0.000000	0.480000
+Records number: 4000
+Record size: 8192
+File1's path: original-data-n4000-s8192
+
+Total					0.480000	0.000000	0.480000
+
+
+Op\Time					Real		User		System
+Copy					0.070000	0.000000	0.060000
+Tools type: System
+Records number: 4000
+Record size: 8192
+File1's path: original-data-n4000-s8192
+File2's path: sys-data-n4000-s8192
+
+Copy					0.060000	0.000000	0.060000
+Tools type: Library
+Records number: 4000
+Record size: 8192
+File1's path: original-data-n4000-s8192
+File2's path: lib-data-n4000-s8192
+
+Total					0.130000	0.000000	0.120000
+
+
+Op\Time					Real		User		System
+Sort					3.100000	0.290000	2.800000
+Tools type: System
+Records number: 4000
+Record size: 8192
+File1's path: sys-data-n4000-s8192
+
+Sort					4.940000	0.720000	4.220000
+Tools type: Library
+Records number: 4000
+Record size: 8192
+File1's path: lib-data-n4000-s8192
+
+Total					8.040000	1.010000	7.020000
+
+
+Op\Time					Real		User		System
+Generate				0.950000	0.000000	0.940000
+Records number: 8000
+Record size: 8192
+File1's path: original-data-n8000-s8192
+
+Total					0.950000	0.000000	0.940000
+
+
+Op\Time					Real		User		System
+Copy					0.120000	0.000000	0.120000
+Tools type: System
+Records number: 8000
+Record size: 8192
+File1's path: original-data-n8000-s8192
+File2's path: sys-data-n8000-s8192
+
+Copy					0.120000	0.000000	0.120000
+Tools type: Library
+Records number: 8000
+Record size: 8192
+File1's path: original-data-n8000-s8192
+File2's path: lib-data-n8000-s8192
+
+Total					0.240000	0.000000	0.240000
+
+
+Op\Time					Real		User		System
+Sort					12.310000	1.350000	10.940000
+Tools type: System
+Records number: 8000
+Record size: 8192
+File1's path: sys-data-n8000-s8192
+
+Sort					21.280000	3.430000	17.850000
+Tools type: Library
+Records number: 8000
+Record size: 8192
+File1's path: lib-data-n8000-s8192
+
+Total					33.590000	4.780000	28.790000
+
+

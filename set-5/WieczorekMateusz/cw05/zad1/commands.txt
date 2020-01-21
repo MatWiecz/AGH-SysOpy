@@ -1,0 +1,2 @@
+cat main.c | grep while | tee --append 1.txt
+find ./.. -name main.c | grep zad1 | tee --append 2.txt

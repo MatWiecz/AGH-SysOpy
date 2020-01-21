@@ -1,0 +1,350 @@
+TEST: Process method: block; Threads number: 1; Filter: my-filter-1
+Command: ./image-filterer 1 block images/mountain.ascii.pgm filters/my-filter-1 images/processed-1-block-my-filter-1.ascii.pgm
+Thread with id 139944502212352 exited after 101949 us of working.
+The image has been filtered in 102146 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 2; Filter: my-filter-1
+Command: ./image-filterer 2 block images/mountain.ascii.pgm filters/my-filter-1 images/processed-2-block-my-filter-1.ascii.pgm
+Thread with id 139839686907648 exited after 52671 us of working.
+Thread with id 139839678514944 exited after 57837 us of working.
+The image has been filtered in 57898 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 4; Filter: my-filter-1
+Command: ./image-filterer 4 block images/mountain.ascii.pgm filters/my-filter-1 images/processed-4-block-my-filter-1.ascii.pgm
+Thread with id 140451905959680 exited after 31274 us of working.
+Thread with id 140451897566976 exited after 32594 us of working.
+Thread with id 140451889174272 exited after 32056 us of working.
+Thread with id 140451880781568 exited after 34161 us of working.
+The image has been filtered in 34265 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 8; Filter: my-filter-1
+Command: ./image-filterer 8 block images/mountain.ascii.pgm filters/my-filter-1 images/processed-8-block-my-filter-1.ascii.pgm
+Thread with id 139974483674880 exited after 18834 us of working.
+Thread with id 139974475282176 exited after 20264 us of working.
+Thread with id 139974466889472 exited after 17146 us of working.
+Thread with id 139974458496768 exited after 21177 us of working.
+Thread with id 139974450104064 exited after 23730 us of working.
+Thread with id 139974441711360 exited after 19069 us of working.
+Thread with id 139974433318656 exited after 23677 us of working.
+Thread with id 139974424925952 exited after 21144 us of working.
+The image has been filtered in 23862 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 1; Filter: my-filter-2
+Command: ./image-filterer 1 block images/mountain.ascii.pgm filters/my-filter-2 images/processed-1-block-my-filter-2.ascii.pgm
+Thread with id 140077312149248 exited after 318183 us of working.
+The image has been filtered in 318557 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 2; Filter: my-filter-2
+Command: ./image-filterer 2 block images/mountain.ascii.pgm filters/my-filter-2 images/processed-2-block-my-filter-2.ascii.pgm
+Thread with id 140538656519936 exited after 167110 us of working.
+Thread with id 140538648127232 exited after 174007 us of working.
+The image has been filtered in 174076 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 4; Filter: my-filter-2
+Command: ./image-filterer 4 block images/mountain.ascii.pgm filters/my-filter-2 images/processed-4-block-my-filter-2.ascii.pgm
+Thread with id 140365485729536 exited after 88254 us of working.
+Thread with id 140365477336832 exited after 88431 us of working.
+Thread with id 140365468944128 exited after 93137 us of working.
+Thread with id 140365460551424 exited after 87946 us of working.
+The image has been filtered in 93221 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 8; Filter: my-filter-2
+Command: ./image-filterer 8 block images/mountain.ascii.pgm filters/my-filter-2 images/processed-8-block-my-filter-2.ascii.pgm
+Thread with id 139835090290432 exited after 49371 us of working.
+Thread with id 139835081897728 exited after 45771 us of working.
+Thread with id 139835073505024 exited after 48501 us of working.
+Thread with id 139835065112320 exited after 49048 us of working.
+Thread with id 139835056719616 exited after 46818 us of working.
+Thread with id 139835048326912 exited after 72219 us of working.
+Thread with id 139835039934208 exited after 53297 us of working.
+Thread with id 139835031541504 exited after 72413 us of working.
+The image has been filtered in 72751 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 1; Filter: my-filter-3
+Command: ./image-filterer 1 block images/mountain.ascii.pgm filters/my-filter-3 images/processed-1-block-my-filter-3.ascii.pgm
+Thread with id 140607208527616 exited after 1197527 us of working.
+The image has been filtered in 1197717 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 2; Filter: my-filter-3
+Command: ./image-filterer 2 block images/mountain.ascii.pgm filters/my-filter-3 images/processed-2-block-my-filter-3.ascii.pgm
+Thread with id 139635635332864 exited after 606297 us of working.
+Thread with id 139635626940160 exited after 601397 us of working.
+The image has been filtered in 606405 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 4; Filter: my-filter-3
+Command: ./image-filterer 4 block images/mountain.ascii.pgm filters/my-filter-3 images/processed-4-block-my-filter-3.ascii.pgm
+Thread with id 140636314801920 exited after 308358 us of working.
+Thread with id 140636306409216 exited after 313170 us of working.
+Thread with id 140636298016512 exited after 316344 us of working.
+Thread with id 140636289623808 exited after 310721 us of working.
+The image has been filtered in 316438 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 8; Filter: my-filter-3
+Command: ./image-filterer 8 block images/mountain.ascii.pgm filters/my-filter-3 images/processed-8-block-my-filter-3.ascii.pgm
+Thread with id 140643929159424 exited after 162022 us of working.
+Thread with id 140643920766720 exited after 168824 us of working.
+Thread with id 140643912374016 exited after 163036 us of working.
+Thread with id 140643903981312 exited after 166698 us of working.
+Thread with id 140643895588608 exited after 163365 us of working.
+Thread with id 140643887195904 exited after 190074 us of working.
+Thread with id 140643878803200 exited after 200933 us of working.
+Thread with id 140643870410496 exited after 164207 us of working.
+The image has been filtered in 201070 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 1; Filter: my-sharpen
+Command: ./image-filterer 1 block images/mountain.ascii.pgm filters/my-sharpen images/processed-1-block-my-sharpen.ascii.pgm
+Thread with id 139826217830144 exited after 43167 us of working.
+The image has been filtered in 43336 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 2; Filter: my-sharpen
+Command: ./image-filterer 2 block images/mountain.ascii.pgm filters/my-sharpen images/processed-2-block-my-sharpen.ascii.pgm
+Thread with id 140320269866752 exited after 23043 us of working.
+Thread with id 140320261474048 exited after 26435 us of working.
+The image has been filtered in 26498 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 4; Filter: my-sharpen
+Command: ./image-filterer 4 block images/mountain.ascii.pgm filters/my-sharpen images/processed-4-block-my-sharpen.ascii.pgm
+Thread with id 140243409368832 exited after 16403 us of working.
+Thread with id 140243400976128 exited after 14183 us of working.
+Thread with id 140243392583424 exited after 16072 us of working.
+Thread with id 140243384190720 exited after 16443 us of working.
+The image has been filtered in 16543 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 8; Filter: my-sharpen
+Command: ./image-filterer 8 block images/mountain.ascii.pgm filters/my-sharpen images/processed-8-block-my-sharpen.ascii.pgm
+Thread with id 140358717101824 exited after 11115 us of working.
+Thread with id 140358708709120 exited after 10299 us of working.
+Thread with id 140358700316416 exited after 9794 us of working.
+Thread with id 140358691923712 exited after 8985 us of working.
+Thread with id 140358683531008 exited after 8580 us of working.
+Thread with id 140358675138304 exited after 10366 us of working.
+Thread with id 140358666745600 exited after 8291 us of working.
+Thread with id 140358658352896 exited after 10353 us of working.
+The image has been filtered in 11204 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 1; Filter: sharpen
+Command: ./image-filterer 1 block images/mountain.ascii.pgm filters/sharpen images/processed-1-block-sharpen.ascii.pgm
+Thread with id 140627667470080 exited after 38157 us of working.
+The image has been filtered in 38337 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 2; Filter: sharpen
+Command: ./image-filterer 2 block images/mountain.ascii.pgm filters/sharpen images/processed-2-block-sharpen.ascii.pgm
+Thread with id 139940320028416 exited after 23041 us of working.
+Thread with id 139940311635712 exited after 25172 us of working.
+The image has been filtered in 25231 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 4; Filter: sharpen
+Command: ./image-filterer 4 block images/mountain.ascii.pgm filters/sharpen images/processed-4-block-sharpen.ascii.pgm
+Thread with id 139948584556288 exited after 15492 us of working.
+Thread with id 139948576163584 exited after 16331 us of working.
+Thread with id 139948567770880 exited after 16028 us of working.
+Thread with id 139948559378176 exited after 15008 us of working.
+The image has been filtered in 16409 us!
+=========================================================================
+
+TEST: Process method: block; Threads number: 8; Filter: sharpen
+Command: ./image-filterer 8 block images/mountain.ascii.pgm filters/sharpen images/processed-8-block-sharpen.ascii.pgm
+Thread with id 140446910428928 exited after 8019 us of working.
+Thread with id 140446902036224 exited after 7951 us of working.
+Thread with id 140446893643520 exited after 8737 us of working.
+Thread with id 140446885250816 exited after 10387 us of working.
+Thread with id 140446876858112 exited after 8313 us of working.
+Thread with id 140446868465408 exited after 11827 us of working.
+Thread with id 140446860072704 exited after 10300 us of working.
+Thread with id 140446851680000 exited after 11812 us of working.
+The image has been filtered in 11936 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 1; Filter: my-filter-1
+Command: ./image-filterer 1 interleaved images/mountain.ascii.pgm filters/my-filter-1 images/processed-1-interleaved-my-filter-1.ascii.pgm
+Thread with id 139977171085056 exited after 100422 us of working.
+The image has been filtered in 100600 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 2; Filter: my-filter-1
+Command: ./image-filterer 2 interleaved images/mountain.ascii.pgm filters/my-filter-1 images/processed-2-interleaved-my-filter-1.ascii.pgm
+Thread with id 139677721753344 exited after 53915 us of working.
+Thread with id 139677713360640 exited after 53872 us of working.
+The image has been filtered in 54064 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 4; Filter: my-filter-1
+Command: ./image-filterer 4 interleaved images/mountain.ascii.pgm filters/my-filter-1 images/processed-4-interleaved-my-filter-1.ascii.pgm
+Thread with id 140539399038720 exited after 31084 us of working.
+Thread with id 140539390646016 exited after 30559 us of working.
+Thread with id 140539382253312 exited after 32097 us of working.
+Thread with id 140539373860608 exited after 35007 us of working.
+The image has been filtered in 35087 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 8; Filter: my-filter-1
+Command: ./image-filterer 8 interleaved images/mountain.ascii.pgm filters/my-filter-1 images/processed-8-interleaved-my-filter-1.ascii.pgm
+Thread with id 140611221104384 exited after 16910 us of working.
+Thread with id 140611212711680 exited after 19602 us of working.
+Thread with id 140611204318976 exited after 16856 us of working.
+Thread with id 140611195926272 exited after 17933 us of working.
+Thread with id 140611187533568 exited after 26153 us of working.
+Thread with id 140611179140864 exited after 20150 us of working.
+Thread with id 140611170748160 exited after 26102 us of working.
+Thread with id 140611162355456 exited after 19022 us of working.
+The image has been filtered in 26308 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 1; Filter: my-filter-2
+Command: ./image-filterer 1 interleaved images/mountain.ascii.pgm filters/my-filter-2 images/processed-1-interleaved-my-filter-2.ascii.pgm
+Thread with id 140282042406656 exited after 327915 us of working.
+The image has been filtered in 328116 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 2; Filter: my-filter-2
+Command: ./image-filterer 2 interleaved images/mountain.ascii.pgm filters/my-filter-2 images/processed-2-interleaved-my-filter-2.ascii.pgm
+Thread with id 140589888182016 exited after 176905 us of working.
+Thread with id 140589879789312 exited after 176271 us of working.
+The image has been filtered in 177004 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 4; Filter: my-filter-2
+Command: ./image-filterer 4 interleaved images/mountain.ascii.pgm filters/my-filter-2 images/processed-4-interleaved-my-filter-2.ascii.pgm
+Thread with id 140625042757376 exited after 87296 us of working.
+Thread with id 140625034364672 exited after 88650 us of working.
+Thread with id 140625025971968 exited after 87829 us of working.
+Thread with id 140625017579264 exited after 92943 us of working.
+The image has been filtered in 93050 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 8; Filter: my-filter-2
+Command: ./image-filterer 8 interleaved images/mountain.ascii.pgm filters/my-filter-2 images/processed-8-interleaved-my-filter-2.ascii.pgm
+Thread with id 140025945659136 exited after 73468 us of working.
+Thread with id 140025937266432 exited after 58257 us of working.
+Thread with id 140025928873728 exited after 69182 us of working.
+Thread with id 140025920481024 exited after 68019 us of working.
+Thread with id 140025912088320 exited after 60660 us of working.
+Thread with id 140025903695616 exited after 63861 us of working.
+Thread with id 140025895302912 exited after 69385 us of working.
+Thread with id 140025886910208 exited after 68452 us of working.
+The image has been filtered in 73611 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 1; Filter: my-filter-3
+Command: ./image-filterer 1 interleaved images/mountain.ascii.pgm filters/my-filter-3 images/processed-1-interleaved-my-filter-3.ascii.pgm
+Thread with id 140361034700544 exited after 1262134 us of working.
+The image has been filtered in 1262323 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 2; Filter: my-filter-3
+Command: ./image-filterer 2 interleaved images/mountain.ascii.pgm filters/my-filter-3 images/processed-2-interleaved-my-filter-3.ascii.pgm
+Thread with id 140195205420800 exited after 640282 us of working.
+Thread with id 140195197028096 exited after 618313 us of working.
+The image has been filtered in 640370 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 4; Filter: my-filter-3
+Command: ./image-filterer 4 interleaved images/mountain.ascii.pgm filters/my-filter-3 images/processed-4-interleaved-my-filter-3.ascii.pgm
+Thread with id 139650267223808 exited after 320185 us of working.
+Thread with id 139650258831104 exited after 318313 us of working.
+Thread with id 139650250438400 exited after 316533 us of working.
+Thread with id 139650242045696 exited after 320488 us of working.
+The image has been filtered in 320582 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 8; Filter: my-filter-3
+Command: ./image-filterer 8 interleaved images/mountain.ascii.pgm filters/my-filter-3 images/processed-8-interleaved-my-filter-3.ascii.pgm
+Thread with id 140177926059776 exited after 177868 us of working.
+Thread with id 140177917667072 exited after 170238 us of working.
+Thread with id 140177909274368 exited after 180888 us of working.
+Thread with id 140177900881664 exited after 164751 us of working.
+Thread with id 140177892488960 exited after 180266 us of working.
+Thread with id 140177884096256 exited after 179389 us of working.
+Thread with id 140177875703552 exited after 189947 us of working.
+Thread with id 140177867310848 exited after 171496 us of working.
+The image has been filtered in 190084 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 1; Filter: my-sharpen
+Command: ./image-filterer 1 interleaved images/mountain.ascii.pgm filters/my-sharpen images/processed-1-interleaved-my-sharpen.ascii.pgm
+Thread with id 139794201470720 exited after 52794 us of working.
+The image has been filtered in 53065 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 2; Filter: my-sharpen
+Command: ./image-filterer 2 interleaved images/mountain.ascii.pgm filters/my-sharpen images/processed-2-interleaved-my-sharpen.ascii.pgm
+Thread with id 140599115745024 exited after 28291 us of working.
+Thread with id 140599107352320 exited after 27770 us of working.
+The image has been filtered in 28376 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 4; Filter: my-sharpen
+Command: ./image-filterer 4 interleaved images/mountain.ascii.pgm filters/my-sharpen images/processed-4-interleaved-my-sharpen.ascii.pgm
+Thread with id 140067975546624 exited after 14371 us of working.
+Thread with id 140067967153920 exited after 13963 us of working.
+Thread with id 140067958761216 exited after 17156 us of working.
+Thread with id 140067950368512 exited after 16577 us of working.
+The image has been filtered in 17228 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 8; Filter: my-sharpen
+Command: ./image-filterer 8 interleaved images/mountain.ascii.pgm filters/my-sharpen images/processed-8-interleaved-my-sharpen.ascii.pgm
+Thread with id 140069461686016 exited after 4706 us of working.
+Thread with id 140069453293312 exited after 11450 us of working.
+Thread with id 140069444900608 exited after 10677 us of working.
+Thread with id 140069436507904 exited after 9159 us of working.
+Thread with id 140069428115200 exited after 11740 us of working.
+Thread with id 140069419722496 exited after 13031 us of working.
+Thread with id 140069411329792 exited after 9127 us of working.
+Thread with id 140069402937088 exited after 12992 us of working.
+The image has been filtered in 13167 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 1; Filter: sharpen
+Command: ./image-filterer 1 interleaved images/mountain.ascii.pgm filters/sharpen images/processed-1-interleaved-sharpen.ascii.pgm
+Thread with id 140487000991488 exited after 39006 us of working.
+The image has been filtered in 39192 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 2; Filter: sharpen
+Command: ./image-filterer 2 interleaved images/mountain.ascii.pgm filters/sharpen images/processed-2-interleaved-sharpen.ascii.pgm
+Thread with id 140540204566272 exited after 25331 us of working.
+Thread with id 140540196173568 exited after 25768 us of working.
+The image has been filtered in 25852 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 4; Filter: sharpen
+Command: ./image-filterer 4 interleaved images/mountain.ascii.pgm filters/sharpen images/processed-4-interleaved-sharpen.ascii.pgm
+Thread with id 139834514106112 exited after 19230 us of working.
+Thread with id 139834505713408 exited after 15889 us of working.
+Thread with id 139834497320704 exited after 8345 us of working.
+Thread with id 139834488928000 exited after 15280 us of working.
+The image has been filtered in 19330 us!
+=========================================================================
+
+TEST: Process method: interleaved; Threads number: 8; Filter: sharpen
+Command: ./image-filterer 8 interleaved images/mountain.ascii.pgm filters/sharpen images/processed-8-interleaved-sharpen.ascii.pgm
+Thread with id 139751577532160 exited after 12060 us of working.
+Thread with id 139751569139456 exited after 11629 us of working.
+Thread with id 139751560746752 exited after 15251 us of working.
+Thread with id 139751552354048 exited after 11580 us of working.
+Thread with id 139751543961344 exited after 11585 us of working.
+Thread with id 139751535568640 exited after 12497 us of working.
+Thread with id 139751527175936 exited after 12737 us of working.
+Thread with id 139751518783232 exited after 11721 us of working.
+The image has been filtered in 15354 us!
+=========================================================================
+

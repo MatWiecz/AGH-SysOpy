@@ -1,0 +1,50 @@
+Czas wykonania operacji w przpadku przeszukiwania małej ilości plików:
+find . -name *.txt > temp
+
+Op\Time			Real		User		System
+Create table	0.000000	0.000000	0.000000
+Run find		0.000000	0.000000	0.000000
+Load file		0.000000	0.000000	0.000000
+Remove block	0.000000	0.000000	0.000000
+Total			0.000000	0.000000	0.000000
+
+Czas wykonania operacji w przpadku przeszukiwania średniej ilości plików:
+find ~ -name *.txt > temp
+Op\Time			Real		User		System
+Create table	0.000000	0.000000	0.000000
+Run find		3.750000	0.270000	1.140000
+Load file		0.000000	0.000000	0.000000
+Remove block	0.000000	0.000000	0.000000
+Total			3.750000	0.270000	1.140000
+
+Czas wykonania operacji w przpadku przeszukiwania dużej ilości plików:
+find / -name *.txt > temp
+Op\Time			Real		User		System
+Create table	0.000000	0.000000	0.000000
+Run find		5.430000	1.080000	1.660000
+Load file		0.000000	0.000000	0.000000
+Remove block	0.000000	0.000000	0.000000
+Total			5.430000	1.080000	1.660000
+
+Testy przedstawione powyżej przedstawiają statystyki czasowe dla następujących operacji:
+- tworzenia tablicy (listy) adresowej bloków pamięci
+- realizacji terminalowej komendy find
+- wczytywania pliku tymczasowego do zalokowanego bloku pamięci
+- zwalnianie bloku pamięci
+
+
+Czas wykonania operacji w przpadku przeszukiwania wyszukania wszystkich plików w systemie plików:
+find / -name *.* > temp
+Op\Time			Real		User		System
+Create table	0.000000	0.000000	0.000000
+Run find		2.670000	0.900000	1.750000
+Load file		0.050000	0.000000	0.000000
+Remove block	0.010000	0.000000	0.000000
+Load file		0.050000	0.000000	0.000000
+Remove block	0.000000	0.000000	0.000000
+Load file		0.060000	0.000000	0.000000
+Remove block	0.000000	0.000000	0.000000
+Total			2.840000	0.900000	1.750000
+
+Test przedstawiony powyżej testuje naprzemienne alokowanie i zwalnianie bloku pamięci.
+Plik tymczasowy posiadał rozmiar ~177 MB.
